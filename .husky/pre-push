@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+branch_name=$(git symbolic-ref --short HEAD)
+
+# develop 브랜치는 검사 제외
+if [ "$branch_name" = "develop" ]; then
+  exit 0
+fi
+
+# 브랜치명 검사 (develop 제외)
+branch_pattern="^(feature|fix|hotfix|design|style|refactor|comment|docs|test|chore)/#[0-9]+$"
+if ! echo "$branch_name" | grep -Eq "$branch_pattern"; then
+  echo "❌ Invalid branch name format."
+  echo "Required: tag/#issue_number (e.g. feature/#456)"
+  exit 1
+fi

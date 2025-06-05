@@ -1,0 +1,24 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# 현재 브랜치 확인
+branch_name=$(git symbolic-ref --short HEAD)
+
+# main 브랜치 커밋 금지
+if [ "$branch_name" = "main" ]; then
+  echo "❌ You cannot commit directly to the main branch."
+  exit 1
+fi
+
+# develop 브랜치는 검사 제외
+if [ "$branch_name" = "develop" ]; then
+  exit 0
+fi
+
+#  브랜치명 검사
+branch_pattern="^(feature|fix|hotfix|design|style|refactor|comment|docs|test|chore)/#[0-9]+$"
+if ! echo "$branch_name" | grep -Eq "$branch_pattern"; then
+  echo "❌ Invalid branch name format."
+  echo "Required: tag/#issue_number (e.g. fix/#123)"
+  exit 1
+fi

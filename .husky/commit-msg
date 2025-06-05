@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+commit_msg=$(cat "$1")
+pattern="^\\(#\\d+\\)\\s\\[(feature|fix|hotfix|design|style|refactor|comment|docs|test|chore)\\]\\s.+"
+
+if ! echo "$commit_msg" | grep -Eq "$pattern"; then
+  echo "❌ Invalid commit message format."
+  echo "Required format: (#123) [feature] your message"
+  exit 1
+fi
