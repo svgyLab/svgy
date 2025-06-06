@@ -15,12 +15,22 @@ export default function Iconbar({
   const DEFAULT_STROKE_COLOR = "#999999";
   const DEFAULT_FILL_COLOR = "#000000";
 
+  const [strokeColor, setStrokeColor] = useState(DEFAULT_STROKE_COLOR);
+  const [fillColor, setFillColor] = useState(DEFAULT_FILL_COLOR);
   const [activeButton, setActiveButton] = useState<string | null>(null);
   const iconbarRef = useRef<HTMLUListElement>(null);
 
   const handleClick = (icon: string) => {
     setActiveButton(icon);
     onActionClick?.(icon);
+  };
+
+  const handleStrokeColorChange = (color: string) => {
+    setStrokeColor(color);
+  };
+
+  const handleFillColorChange = (color: string) => {
+    setFillColor(color);
   };
 
   useEffect(() => {
@@ -66,8 +76,8 @@ export default function Iconbar({
             <ColorPicker
               label="선 컬러 선택"
               pickerId="colorpicker-stroke"
-              color={DEFAULT_STROKE_COLOR}
-              onChange={(color) => console.log("선택된 색상 (stroke):", color)}
+              color={strokeColor}
+              onChange={handleStrokeColorChange}
               stroke={true}
             />
           </div>
@@ -75,8 +85,8 @@ export default function Iconbar({
             <ColorPicker
               label="면 컬러 선택"
               pickerId="colorpicker-fill"
-              color={DEFAULT_FILL_COLOR}
-              onChange={(color) => console.log("선택된 색상 (fill):", color)}
+              color={fillColor}
+              onChange={handleFillColorChange}
               stroke={false}
             />
           </div>
