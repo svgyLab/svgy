@@ -1,0 +1,18 @@
+@use "../../mixin" as *;
+@use "../../variables" as *;
+
+.canvas {
+  @include position(fixed, 50px, 0, 0, 0);
+  background: $darkGray;
+
+  &.active {
+    right: $panelWidth;
+  }
+
+  &-editor {
+    @include position(absolute, 50%, null, null, 50%);
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border: 1px solid $border;
+  }
+}
