@@ -1,3 +1,4 @@
+import React from "react";
 import type { ButtonIcon } from "../../components/Button/Button.types";
 import type { MenuGroup } from "../../layouts/HeaderMenuBar/HeaderMenuBar.types";
 import PanelLayer from "../../components/Panel/Contents/PanelLayer";
@@ -67,31 +68,37 @@ export const sideButtons: { icon: ButtonIcon; label: string }[] = [
   { icon: "align-left", label: "정렬" }
 ];
 
-export const panelAlignButtons = [
+export const panelAlignButtons: { label: string; icon: ButtonIcon }[] = [
   { label: "좌측 정렬", icon: "align-left" },
   { label: "가운데 정렬", icon: "align-center" },
   { label: "우측 정렬", icon: "align-right" },
   { label: "상단 정렬", icon: "align-top" },
   { label: "중앙 정렬", icon: "align-middle" },
   { label: "하단 정렬", icon: "align-bottom" }
-] as const;
+];
 
-export const textAlignButtons = [
+export const textAlignButtons: { label: string; icon: ButtonIcon }[] = [
   { label: "텍스트 좌측 정렬", icon: "text-left" },
   { label: "텍스트 중앙 정렬", icon: "text-center" },
   { label: "텍스트 우측 정렬", icon: "text-right" }
-] as const;
+];
 
-export const textStyleButtons = [
+export const textStyleButtons: { label: string; icon: ButtonIcon }[] = [
   { label: "텍스트 볼드", icon: "text-bold" },
   { label: "텍스트 밑줄", icon: "text-underline" },
   { label: "텍스트 이텔릭", icon: "text-italic" },
   { label: "텍스트 취소선", icon: "text-stroke" }
-] as const;
+];
 
-export const panelItems = [
+type PanelItem = {
+  title: string;
+  Component: React.ComponentType<any>;
+  historyLists?: boolean;
+};
+
+export const panelItems: readonly PanelItem[] = [
   { title: "레이어", Component: PanelLayer },
   { title: "문자", Component: PanelCharacter },
   { title: "내역", Component: PanelHistory, historyLists: true },
   { title: "정렬", Component: PanelAlign }
-] as const;
+];
