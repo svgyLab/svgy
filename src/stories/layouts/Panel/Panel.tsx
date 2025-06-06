@@ -6,10 +6,10 @@ function Panel() {
   return (
     <aside className={styles["panel"]}>
       <ul className={styles["panel-list"]}>
-        {panelItems.map(({ title, Component }) => (
+        {panelItems.map(({ title, Component, historyLists }) => (
           <li key={title} className={styles["panel-item"]}>
             <PanelItem title={title}>
-              <Component historyLists={true} />
+              <Component {...(historyLists ? { historyLists: true } : {})} />
             </PanelItem>
           </li>
         ))}
