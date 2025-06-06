@@ -1,4 +1,4 @@
-import type { DropdownOption } from "../../Dropdown/Dropdown.types.ts";
+import type { DropdownOption } from "../../components/Dropdown/Dropdown.types";
 
 export type MenuGroup = {
   name: string;
