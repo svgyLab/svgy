@@ -37,11 +37,12 @@
 
       .colorpicker-stroke {
         @include position(absolute, null, 0, 0);
+        z-index: 1;
       }
 
       .colorpicker-fill {
         @include position(absolute, 0, null, null, 0);
-        z-index: 100;
+        z-index: 2;
       }
     }
 
