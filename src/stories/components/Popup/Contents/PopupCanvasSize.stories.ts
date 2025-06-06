@@ -20,4 +20,10 @@ export default meta;
 type Story = StoryObj<typeof PopupCanvasSize>;
 
 export const Default: Story = {
+  args: {
+    currentWidth: 600,
+    currentHeight: 600,
+    onSave: (width, height) => console.log("저장", width, height),
+    onCancel: () => console.log("취소"),
+  },
 };
