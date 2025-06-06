@@ -15,6 +15,97 @@ export const fontSizeOptions = [
   { label: "20px", value: "20px" },
 ];
 
+export const historyItems =  [
+  {
+    label: "history 1",
+    key: "1",
+    isItemButton: false,
+    buttons: [
+      {
+        label: "되돌리기",
+        onClick: () => alert("되돌리기"),
+      },
+    ],
+  },
+  {
+    label: "history 2",
+    key: "2",
+    isItemButton: false,
+    buttons: [
+      {
+        label: "되돌리기",
+        onClick: () => alert("되돌리기"),
+      },
+    ],
+  },
+  {
+    label: "history 3",
+    key: "3",
+    isItemButton: false,
+    buttons: [
+      {
+        label: "되돌리기",
+        onClick: () => alert("되돌리기"),
+      },
+    ],
+  },
+  {
+    label: "history 4",
+    key: "4",
+    isItemButton: false,
+    buttons: [
+      {
+        label: "되돌리기",
+        onClick: () => alert("되돌리기"),
+      },
+    ],
+  },
+  {
+    label: "history 5",
+    key: "5",
+    isItemButton: false,
+    buttons: [
+      {
+        label: "되돌리기",
+        onClick: () => alert("되돌리기"),
+      },
+    ],
+  },
+  {
+    label: "history 6",
+    key: "6",
+    isItemButton: false,
+    buttons: [
+      {
+        label: "되돌리기",
+        onClick: () => alert("되돌리기"),
+      },
+    ],
+  },
+  {
+    label: "history 7",
+    key: "7",
+    isItemButton: false,
+    buttons: [
+      {
+        label: "되돌리기",
+        onClick: () => alert("되돌리기"),
+      },
+    ],
+  },
+  {
+    label: "history 8",
+    key: "8",
+    isItemButton: false,
+    buttons: [
+      {
+        label: "되돌리기",
+        onClick: () => alert("되돌리기"),
+      },
+    ],
+  },
+];
+
 export const selectOptions = [
   { label: "Apple", value: "apple" },
   { label: "Banana", value: "banana" },

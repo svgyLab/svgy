@@ -9,3 +9,7 @@ export type PanelItemProps = {
 export interface PanelAlignProps {
   onAlignChange?: (alignment: string) => void;
 }
+
+export type PanelHistoryProps = {
+  historyLists: boolean;
+}
