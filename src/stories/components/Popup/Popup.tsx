@@ -1,6 +1,7 @@
 import { useId } from "react";
 import type { PopupProps } from "./Popup.types";
 import styles from "../../styles/components/Popup/Popup.module.scss";
+import CloseButton from "../Button/CloseButton";
 
 export default function Popup({
    title,
@@ -19,9 +20,9 @@ export default function Popup({
           <strong className={styles['popup-header']} id={titleId}>{title}</strong>
         }
         {children}
-        <button className={styles['popup-close']} onClick={onClose}>
-          <span className={styles['blind']}>닫기</span>
-        </button>
+        <div className={styles['popup-close-container']}>
+          <CloseButton onClick={onClose} />
+        </div>
       </div>
     </div>
   );
