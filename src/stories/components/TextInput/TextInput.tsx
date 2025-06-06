@@ -24,7 +24,7 @@ export default function TextInput({
         className={styles["text-input"]}
         style={inputWidth ? { width: `${inputWidth}px` } : undefined}
         onChange={onChange}
-        value={value ?? ""}
+        value={value !== null && value !== undefined ? String(value) : ""}
         {...(inputType === "number" && min !== undefined && { min })}
       />
     </div>
