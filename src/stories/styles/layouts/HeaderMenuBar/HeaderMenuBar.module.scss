@@ -1,0 +1,25 @@
+@use "../../mixin" as *;
+@use "../../variables" as *;
+
+.header-menu {
+  &-bar {
+    background-color: $menuBg;
+    padding: 8px 16px;
+    border-bottom: 1px solid $border;
+    z-index: 105;
+    @include position(fixed, 0, null, null, 0);
+    width: 100%;
+    height: $headerHeight;
+    box-sizing: border-box;
+  }
+
+  &-list {
+    display: flex;
+    gap: 5px;
+    z-index: 100;
+  }
+
+  &-item {
+    position: relative;
+  }
+}

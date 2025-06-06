@@ -1,0 +1,19 @@
+@use "../../mixin" as *;
+@use "../../variables" as *;
+
+.panel {
+  @include position(fixed, $headerHeight, 0);
+  width: $panelWidth;
+  height: calc(100vh - $headerHeight);
+  overflow-y: auto;
+  background: $white;
+  border-left: 1px solid $border;
+  z-index: 100;
+
+  &-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-y: auto;
+  }
+}

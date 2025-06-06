@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24">
+  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M12,11.3L22.3,1l.7.7-10.3,10.3,10.3,10.3-.7.7-10.3-10.3L1.7,23l-.7-.7,10.3-10.3L1,1.7l.7-.7,10.3,10.3Z"/>
+</svg>

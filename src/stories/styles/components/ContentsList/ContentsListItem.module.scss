@@ -1,0 +1,43 @@
+@use "../../mixin" as *;
+@use "../../variables" as *;
+
+.contents-item {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 40px;
+  transition: all .3s;
+
+  &:hover {
+    background-color: $menuBg;
+  }
+
+  &.active {
+    background-color: $menuBg;
+  }
+
+  &-content {
+    flex: 1;
+    padding: 5px;
+    @include ellipsis;
+  }
+
+  &-button {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    border-radius: 0;
+    text-align: left;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 5px;
+    @include ellipsis;
+
+    &-container {
+      display: flex;
+      gap: 5px;
+      padding-right: 5px;
+    }
+  }
+}

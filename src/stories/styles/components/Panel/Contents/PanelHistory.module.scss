@@ -1,0 +1,15 @@
+@use "../../../variables" as *;
+
+.panel {
+  &-container {
+    height: 200px;
+    overflow: auto;
+    border: 1px solid $black;
+  }
+
+  &-no-result {
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}

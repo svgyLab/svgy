@@ -1,0 +1,29 @@
+@use "../../../variables" as *;
+
+.panel {
+  &-line-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &-select-container {
+    flex: 1;
+  }
+
+  &-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex: 1;
+
+    &:not(:last-child) {
+      padding-right: 10px;
+      border-right: 1px solid $border;
+    }
+  }
+}
