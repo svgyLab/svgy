@@ -23,7 +23,7 @@ export default function ContentsList({
             label={item.label}
             onClick={() => handleClick(item.key)}
             active={item.key === activeKey}
-            isContentsButton={item.isItemButton}
+            isItemButton={item.isItemButton}
             buttons={item.buttons}
           />
         </li>

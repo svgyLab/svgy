@@ -15,7 +15,7 @@ export type ContentsListProps = {
 
 export type ContentsListItemProps = {
   label: string;
-  isContentsButton?: boolean;
+  isItemButton?: boolean;
   onClick?: () => void;
   buttons?: ButtonConfig[];
   active?: boolean;
