@@ -5,3 +5,7 @@ export type PanelItemProps = {
   children?: React.ReactNode;
   onClose?: () => void;
 };
+
+export interface PanelAlignProps {
+  onAlignChange?: (alignment: string) => void;
+}

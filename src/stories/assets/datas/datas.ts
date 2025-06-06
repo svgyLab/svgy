@@ -4,3 +4,12 @@ export const buttonIconOptions = [
   "reflection", "rotation", "selector", "square", "text-bold", "text-center", "text-italic", "text-left",
   "text-right", "text-stroke", "text-underline", "trash", "triangle", "unlock",
 ] as const;
+
+export const panelAlignButtons = [
+  { label: "좌측 정렬", icon: "align-left" },
+  { label: "가운데 정렬", icon: "align-center" },
+  { label: "우측 정렬", icon: "align-right" },
+  { label: "상단 정렬", icon: "align-top" },
+  { label: "중앙 정렬", icon: "align-middle" },
+  { label: "하단 정렬", icon: "align-bottom" }
+] as const;
