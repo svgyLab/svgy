@@ -83,7 +83,16 @@ export default function PopupCanvasSize({
         </dl>
       </div>
       <div className={styles["popup-canvas-button-container"]}>
-        <Button label="저장" type="button" onClick={() => onSave(width, height)} />
+        <Button
+          label="저장"
+          type="button"
+          onClick={() => {
+            if (width > 0 && height > 0) {
+              onSave(width, height);
+            }
+          }}
+          disabled={width <= 0 || height <= 0}
+        />
         <Button label="취소" type="button" onClick={onCancel} />
       </div>
     </div>
