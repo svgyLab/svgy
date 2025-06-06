@@ -1,0 +1,48 @@
+import type { ButtonIcon } from "../../components/Button/Button.types";
+
+export const contentsListItems: {
+  label: string;
+  key: string;
+  buttons: {
+    Default: { icon: ButtonIcon; label: string }[];
+    OneButtonList: { icon: ButtonIcon; label: string }[];
+    NoButtonList: { icon: ButtonIcon; label: string }[];
+  };
+}[] = [
+  {
+    label: "First Item",
+    key: "1",
+    buttons: {
+      Default: [
+        { icon: "unlock", label: "Edit" },
+        { icon: "trash", label: "Delete" },
+      ],
+      OneButtonList: [{ icon: "unlock", label: "Edit" }],
+      NoButtonList: [],
+    },
+  },
+  {
+    label: "Second Item",
+    key: "2",
+    buttons: {
+      Default: [
+        { icon: "unlock", label: "unlock" },
+        { icon: "trash", label: "Delete" },
+      ],
+      OneButtonList: [{ icon: "unlock", label: "Edit" }],
+      NoButtonList: [],
+    },
+  },
+  {
+    label: "Third Item",
+    key: "3",
+    buttons: {
+      Default: [
+        { icon: "unlock", label: "unlock" },
+        { icon: "trash", label: "Delete" },
+      ],
+      OneButtonList: [{ icon: "unlock", label: "unlock" }],
+      NoButtonList: [],
+    },
+  },
+];
