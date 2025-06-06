@@ -1,0 +1,44 @@
+@use "../../mixin.scss" as *;
+@use "../../variables.scss" as *;
+
+.blind {
+  @include blind;
+}
+
+.popup {
+  background: $white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  box-sizing: border-box;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+  @include position(absolute, 50%, null, null, 50%);
+  transform: translate(-50%, -50%);
+
+  &-container {
+    @include position(fixed, 0, 0, 0, 0);
+    background: rgba(0, 0, 0, .5);
+    z-index: 1000;
+  }
+
+  &-header {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 12px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    @include ellipsis;
+  }
+
+  &-close {
+    @include position(absolute, 20px, 20px);
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("../../../assets/icons/icon-close.svg") no-repeat center center / 16px 16px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+}
