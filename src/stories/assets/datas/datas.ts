@@ -1,3 +1,4 @@
+import type { ButtonIcon } from "../../components/Button/Button.types";
 import type { MenuGroup } from "../../layouts/HeaderMenuBar/HeaderMenuBar.types";
 
 export const buttonIconOptions = [
@@ -39,6 +40,27 @@ export const menus: MenuGroup[] = [
       { label: "License", value: "license" },
     ],
   },
+];
+
+export const toolbarButtons: { icon: ButtonIcon; label: string }[] = [
+  { icon: "cursor", label: "선택" },
+  { icon: "selector", label: "앵커 선택" },
+  { icon: "artboard", label: "아트보드" },
+  { icon: "pentool", label: "펜툴" },
+  { icon: "hand", label: "확대" },
+  { icon: "letter", label: "문자" },
+  { icon: "circle", label: "동그라미" },
+  { icon: "square", label: "네모" },
+  { icon: "triangle", label: "세모" },
+  { icon: "rotation", label: "회전" },
+  { icon: "reflection", label: "반전" }
+];
+
+export const sideButtons: { icon: ButtonIcon; label: string }[] = [
+  { icon: "layer", label: "레이어" },
+  { icon: "character", label: "문자 편집" },
+  { icon: "history", label: "내역" },
+  { icon: "align-left", label: "정렬" }
 ];
 
 export const panelAlignButtons = [
