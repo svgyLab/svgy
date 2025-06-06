@@ -1,0 +1,80 @@
+@use "../../mixin" as *;
+@use "../../variables" as *;
+
+.blind {
+  @include blind;
+}
+
+.button {
+  border-radius: 0;
+  border: 1px solid $border;
+  padding: 0;
+  background-color: $white;
+  transition: all .2s;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+
+  &:hover:not(:disabled):not(.active) {
+    border-color: $point;
+    color: $point;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+
+  &:not(.icon) {
+    padding: 5px 10px;
+  }
+
+  &.icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  &.active {
+    border-color: $black;
+  }
+
+  $icons: (
+    align-bottom,
+    align-center,
+    align-left,
+    align-middle,
+    align-right,
+    align-top,
+    artboard,
+    character,
+    circle,
+    cursor,
+    hand,
+    history,
+    layer,
+    letter,
+    lock,
+    pentool,
+    reflection,
+    rotation,
+    selector,
+    square,
+    text-bold,
+    text-center,
+    text-italic,
+    text-left,
+    text-right,
+    text-stroke,
+    text-underline,
+    trash,
+    triangle,
+    unlock
+  );
+
+  @each $icon in $icons {
+    &.#{$icon} {
+      background: $white url("../../../assets/icons/icon-#{$icon}.svg") no-repeat center center / 20px 20px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use "../../mixin" as *;
+
+.close-button {
+  width: 20px;
+  height: 20px;
+  background: url("../../../assets/icons/icon-close.svg") no-repeat center center / 16px 16px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &-text {
+    @include blind;
+  }
+}
