@@ -48,8 +48,11 @@ export default function PopupCanvasSize({
                 min={1}
                 inputWidth={100}
                 onChange={(e) => {
-                  const value = Number(e.target.value);
-                  if (!Number.isNaN(value) && value > 0) setWidth(value);
+                  const inputValue = e.target.value;
+                  const value = Number(inputValue);
+                  if (inputValue === '' || (!Number.isNaN(value) && value > 0 && Number.isInteger(value))) {
+                      setWidth(inputValue === '' ? 0 : value);
+                    }
                 }}
                 value={width}
               />px
@@ -67,8 +70,11 @@ export default function PopupCanvasSize({
                 min={1}
                 inputWidth={100}
                 onChange={(e) => {
-                  const value = Number(e.target.value);
-                  if (!Number.isNaN(value) && value > 0) setHeight(value);
+                  const inputValue = e.target.value;
+                  const value = Number(inputValue);
+                  if (inputValue === '' || (!Number.isNaN(value) && value > 0 && Number.isInteger(value))) {
+                    setWidth(inputValue === '' ? 0 : value);
+                  }
                 }}
                 value={height}
               />px
