@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import PanelDetails from "./PanelDetails";
+import PanelItem from "./PanelItem";
 
-const meta: Meta<typeof PanelDetails> = {
-  title: "Components/Panel/PanelDetails",
-  component: PanelDetails,
+const meta: Meta<typeof PanelItem> = {
+  title: "Components/Panel/PanelItem",
+  component: PanelItem,
   tags: ["autodocs"],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof PanelDetails>;
+type Story = StoryObj<typeof PanelItem>;
 
 export const Default: Story = {
   args: {
-    title: "PanelDetails Title",
+    title: "PanelItem Title",
   },
 };
