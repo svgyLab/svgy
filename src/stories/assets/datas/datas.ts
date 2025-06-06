@@ -1,9 +1,45 @@
+import type { MenuGroup } from "../../layouts/HeaderMenuBar/HeaderMenuBar.types";
+
 export const buttonIconOptions = [
   "align-bottom", "align-center", "align-left", "align-middle", "align-right", "align-top", "artboard",
   "character", "circle", "cursor", "hand", "history", "layer", "letter", "lock", "pentool",
   "reflection", "rotation", "selector", "square", "text-bold", "text-center", "text-italic", "text-left",
   "text-right", "text-stroke", "text-underline", "trash", "triangle", "unlock",
 ] as const;
+
+export const menus: MenuGroup[] = [
+  {
+    name: "File",
+    options: [
+      { label: "New", value: "new" },
+      { label: "Open", value: "open" },
+      { label: "Save", value: "save" },
+    ],
+  },
+  {
+    name: "View",
+    options: [
+      { label: "Ruler", value: "ruler" },
+      { label: "Zoom In", value: "zoomIn" },
+      { label: "Zoom Out", value: "zoomOut" },
+    ],
+  },
+  {
+    name: "Object",
+    options: [
+      { label: "Create Outlines", value: "createOutlines" },
+      { label: "Canvas Size", value: "canvasSize" },
+    ],
+  },
+  {
+    name: "Help",
+    options: [
+      { label: "Documentation", value: "docs" },
+      { label: "About", value: "about" },
+      { label: "License", value: "license" },
+    ],
+  },
+];
 
 export const panelAlignButtons = [
   { label: "좌측 정렬", icon: "align-left" },
