@@ -1,5 +1,9 @@
 import type { ButtonIcon } from "../../components/Button/Button.types";
 import type { MenuGroup } from "../../layouts/HeaderMenuBar/HeaderMenuBar.types";
+import PanelLayer from "../../components/Panel/Contents/PanelLayer";
+import PanelCharacter from "../../components/Panel/Contents/PanelCharacter";
+import PanelHistory from "../../components/Panel/Contents/PanelHistory";
+import PanelAlign from "../../components/Panel/Contents/PanelAlign";
 
 export const buttonIconOptions = [
   "align-bottom", "align-center", "align-left", "align-middle", "align-right", "align-top", "artboard",
@@ -83,4 +87,11 @@ export const textStyleButtons = [
   { label: "텍스트 밑줄", icon: "text-underline" },
   { label: "텍스트 이텔릭", icon: "text-italic" },
   { label: "텍스트 취소선", icon: "text-stroke" }
+] as const;
+
+export const panelItems = [
+  { title: "레이어", Component: PanelLayer },
+  { title: "문자", Component: PanelCharacter },
+  { title: "내역", Component: PanelHistory, historyLists: true },
+  { title: "정렬", Component: PanelAlign }
 ] as const;
