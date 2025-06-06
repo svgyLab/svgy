@@ -1,5 +1,20 @@
 import type { ButtonIcon } from "../../components/Button/Button.types";
 
+export const typefaceOptions = [
+  { label: "Arial", value: "Arial" },
+  { label: "Inter", value: "Inter" },
+  { label: "NotoSans", value: "NotoSans" },
+];
+
+export const fontSizeOptions = [
+  { label: "10px", value: "10px" },
+  { label: "12px", value: "12px" },
+  { label: "14px", value: "14px" },
+  { label: "16px", value: "16px" },
+  { label: "18px", value: "18px" },
+  { label: "20px", value: "20px" },
+];
+
 export const selectOptions = [
   { label: "Apple", value: "apple" },
   { label: "Banana", value: "banana" },
