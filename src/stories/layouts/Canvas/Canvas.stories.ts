@@ -22,6 +22,7 @@ type Story = StoryObj<typeof Canvas>;
 export const Default: Story = {
   args: {
     width: 300,
-    height: 300
+    height: 300,
+    active: false
   },
 };
