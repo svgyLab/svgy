@@ -73,7 +73,7 @@ export default function PopupCanvasSize({
                   const inputValue = e.target.value;
                   const value = Number(inputValue);
                   if (inputValue === '' || (!Number.isNaN(value) && value > 0 && Number.isInteger(value))) {
-                    setWidth(inputValue === '' ? 0 : value);
+                    setHeight(inputValue === '' ? 0 : value);
                   }
                 }}
                 value={height}
