@@ -1,0 +1,32 @@
+@use "../../mixin" as *;
+@use "../../variables" as *;
+
+.select {
+  padding: 8px 30px 8px 10px;
+  font-size: 16px;
+  border: 1px solid $border;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  width: 100%;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &-label {
+    @include blind;
+  }
+
+  &-container {
+    position: relative;
+
+    &::after {
+      @include position(absolute, 50%, 10px);
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      background: url("../../../assets/icons/icon-arrow-down.svg") no-repeat center center / 16px 16px;
+      content: '';
+    }
+  }
+}

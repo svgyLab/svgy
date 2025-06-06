@@ -1,5 +1,11 @@
 import type { ButtonIcon } from "../../components/Button/Button.types";
 
+export const selectOptions = [
+  { label: "Apple", value: "apple" },
+  { label: "Banana", value: "banana" },
+  { label: "Cherry", value: "cherry" },
+];
+
 export const contentsListItems: {
   label: string;
   key: string;
