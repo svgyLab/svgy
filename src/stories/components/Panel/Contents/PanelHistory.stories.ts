@@ -12,4 +12,5 @@ export default meta;
 type Story = StoryObj<typeof PanelHistory>;
 
 export const Default: Story = {
+  args: { historyLists: true },
 };
