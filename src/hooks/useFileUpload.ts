@@ -18,55 +18,71 @@ export const useFileUpload = () => {
     const reader = new FileReader();
     reader.onload = () => {
       if (typeof reader.result === "string") {
-        const svgString = reader.result;
-        updateSvgContent(svgString);
+        try {
+          const svgString = reader.result;
+          updateSvgContent(svgString);
 
-        const parser = new DOMParser();
-        const svgDocument = parser.parseFromString(svgString, "image/svg+xml");
-        const svgElement = svgDocument.querySelector("svg");
+          const parser = new DOMParser();
+          const svgDocument = parser.parseFromString(svgString, "image/svg+xml");
+          const parserError = svgDocument.querySelector("parsererror");
 
-        if (svgElement) {
-          const viewBox = svgElement.getAttribute("viewBox");
-          const widthAttr = svgElement.getAttribute("width");
-          const heightAttr = svgElement.getAttribute("height");
-
-          let canvasWidth = 500;
-          let canvasHeight = 500;
-
-          if (widthAttr && heightAttr) {
-            canvasWidth = parseFloat(widthAttr);
-            canvasHeight = parseFloat(heightAttr);
-          } else if (viewBox) {
-            const [, , viewBoxWidth, viewBoxHeight] = viewBox.split(" ").map(Number);
-            canvasWidth = viewBoxWidth;
-            canvasHeight = viewBoxHeight;
+          if (parserError) {
+            console.error("SVG parsing error:", parserError.textContent);
+            return;
           }
 
-          if (!isNaN(canvasWidth) && !isNaN(canvasHeight)) {
-            updateCanvasSize(canvasWidth, canvasHeight);
+          const svgElement = svgDocument.querySelector("svg");
+
+          if (!svgElement) {
+            console.error("파일에서 SVG 요소를 찾을 수 없습니다.");
+            return;
           }
 
-          const elements: SvgElement[] = [];
-          const supportedTags = [
-            "path", "rect", "circle", "ellipse",
-            "line", "polygon", "polyline", "g"
-          ];
+          if (svgElement) {
+            const viewBox = svgElement.getAttribute("viewBox");
+            const widthAttr = svgElement.getAttribute("width");
+            const heightAttr = svgElement.getAttribute("height");
 
-          supportedTags.forEach((tag) => {
-            svgDocument.querySelectorAll(tag).forEach((el) => {
-              const attributes: Record<string, string> = {};
-              Array.from(el.attributes).forEach(attr => {
-                attributes[attr.name] = attr.value;
-              });
+            let canvasWidth = 500;
+            let canvasHeight = 500;
 
-              elements.push({
-                tag,
-                attributes,
+            if (widthAttr && heightAttr) {
+              canvasWidth = parseFloat(widthAttr);
+              canvasHeight = parseFloat(heightAttr);
+            } else if (viewBox) {
+              const [, , viewBoxWidth, viewBoxHeight] = viewBox.split(" ").map(Number);
+              canvasWidth = viewBoxWidth;
+              canvasHeight = viewBoxHeight;
+            }
+
+            if (!isNaN(canvasWidth) && !isNaN(canvasHeight)) {
+              updateCanvasSize(canvasWidth, canvasHeight);
+            }
+
+            const elements: SvgElement[] = [];
+            const supportedTags = [
+              "path", "rect", "circle", "ellipse",
+              "line", "polygon", "polyline", "g"
+            ];
+
+            supportedTags.forEach((tag) => {
+              svgDocument.querySelectorAll(tag).forEach((el) => {
+                const attributes: Record<string, string> = {};
+                Array.from(el.attributes).forEach(attr => {
+                  attributes[attr.name] = attr.value;
+                });
+
+                elements.push({
+                  tag,
+                  attributes,
+                });
               });
             });
-          });
 
-          updateSvgElements(elements);
+            updateSvgElements(elements);
+          }
+        } catch (error) {
+          console.error("Error processing SVG file:", error);
         }
       }
     };
