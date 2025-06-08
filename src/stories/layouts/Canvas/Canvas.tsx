@@ -12,9 +12,16 @@ export default function Canvas({ active }: CanvasProps) {
 
   useEffect(() => {
     if (canvasRef.current && svgContent) {
-      canvasRef.current.innerHTML = "";
-      const draw = SVG().addTo(canvasRef.current).size(width, height);
-      draw.svg(svgContent);
+      try {
+        while (canvasRef.current.firstChild) {
+          canvasRef.current.removeChild(canvasRef.current.firstChild);
+        }
+
+        const draw = SVG().addTo(canvasRef.current).size(width, height);
+        draw.svg(svgContent);
+      } catch (error) {
+        console.error("SVG 렌더링 중 오류 발생:", error);
+      }
     }
   }, [svgContent, width, height]);
 
