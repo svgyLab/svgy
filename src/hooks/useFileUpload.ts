@@ -5,6 +5,7 @@ export const useFileUpload = () => {
   const hiddenFileInputRef = useRef<HTMLInputElement | null>(null);
   const updateSvgContent = useSvgStore((state) => state.setSvgContent);
   const updateCanvasSize = useSvgStore((state) => state.setCanvasSize);
+  const updateSvgElements = useSvgStore((state) => state.setSvgElements);
 
   const triggerFileDialog = () => {
     hiddenFileInputRef.current?.click();
@@ -44,6 +45,28 @@ export const useFileUpload = () => {
           if (!isNaN(canvasWidth) && !isNaN(canvasHeight)) {
             updateCanvasSize(canvasWidth, canvasHeight);
           }
+
+          const elements: any[] = [];
+          const supportedTags = [
+            "path", "rect", "circle", "ellipse",
+            "line", "polygon", "polyline", "g"
+          ];
+
+          supportedTags.forEach((tag) => {
+            svgDocument.querySelectorAll(tag).forEach((el) => {
+              const attrs: Record<string, string> = {};
+              Array.from(el.attributes).forEach(attr => {
+                attrs[attr.name] = attr.value;
+              });
+
+              elements.push({
+                tag,
+                attributes: attrs,
+              });
+            });
+          });
+
+          updateSvgElements(elements);
         }
       }
     };
