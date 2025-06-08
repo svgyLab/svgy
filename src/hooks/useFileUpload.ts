@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useSvgStore } from "../stores/svgStore";
+import { type SvgElement, useSvgStore } from "../stores/svgStore";
 
 export const useFileUpload = () => {
   const hiddenFileInputRef = useRef<HTMLInputElement | null>(null);
@@ -46,7 +46,7 @@ export const useFileUpload = () => {
             updateCanvasSize(canvasWidth, canvasHeight);
           }
 
-          const elements: any[] = [];
+          const elements: SvgElement[] = [];
           const supportedTags = [
             "path", "rect", "circle", "ellipse",
             "line", "polygon", "polyline", "g"
@@ -54,14 +54,14 @@ export const useFileUpload = () => {
 
           supportedTags.forEach((tag) => {
             svgDocument.querySelectorAll(tag).forEach((el) => {
-              const attrs: Record<string, string> = {};
+              const attributes: Record<string, string> = {};
               Array.from(el.attributes).forEach(attr => {
-                attrs[attr.name] = attr.value;
+                attributes[attr.name] = attr.value;
               });
 
               elements.push({
                 tag,
-                attributes: attrs,
+                attributes,
               });
             });
           });

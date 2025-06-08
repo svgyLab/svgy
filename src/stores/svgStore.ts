@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface SvgElement {
+export interface SvgElement {
   tag: string;
   attributes: Record<string, string>;
 }
