@@ -50,9 +50,13 @@ export const useFileUpload = () => {
               canvasWidth = parseFloat(widthAttr);
               canvasHeight = parseFloat(heightAttr);
             } else if (viewBox) {
-              const [, , viewBoxWidth, viewBoxHeight] = viewBox.split(" ").map(Number);
-              canvasWidth = viewBoxWidth;
-              canvasHeight = viewBoxHeight;
+              const viewBoxValues = viewBox.split(" ").map(Number);
+
+              if (viewBoxValues.length === 4 && viewBoxValues.every(val => !isNaN(val))) {
+                const [, , viewBoxWidth, viewBoxHeight] = viewBoxValues;
+                canvasWidth = viewBoxWidth;
+                canvasHeight = viewBoxHeight;
+              }
             }
 
             if (!isNaN(canvasWidth) && !isNaN(canvasHeight)) {
