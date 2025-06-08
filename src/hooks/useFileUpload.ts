@@ -13,7 +13,7 @@ export const useFileUpload = () => {
 
   const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
-    if (!selectedFile || !selectedFile.name.endsWith(".svg")) return;
+    if (!selectedFile || !selectedFile.name.endsWith(".svg") || selectedFile.type !== "image/svg+xml") return;
 
     const reader = new FileReader();
     reader.onload = () => {
